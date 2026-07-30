@@ -121,8 +121,9 @@
       <div class="card"><h3>Ração & arraçoamento</h3><p>Quantidade, granulometria e tratos calculados pra você.</p></div>
       <div class="card"><h3>Biometria & crescimento</h3><p>GPD, conversão alimentar e projeção de despesca.</p></div>
       <div class="card"><h3>Estoque & custos</h3><p>Custo por quilo real, antes da despesca chegar.</p></div>
-      <div class="card"><h3>Especialistas & profissionais</h3><p>Os melhores do setor, quando você precisar.</p></div>
-      <div class="card"><h3>Equipamentos & marcas</h3><p>Fornecedores e marcas de confiança, num só lugar.</p></div>
+      <div class="card"><h3>Projetos & dimensionamento</h3><p>Do projeto ao viveiro rodando: projetistas a um clique.</p></div>
+      <div class="card"><h3>Especialistas & profissionais</h3><p>Consultas e os melhores do setor, quando precisar.</p></div>
+      <div class="card"><h3>Equipamentos, insumos & kits</h3><p>Fornecedores, marcas e kits de controle da água num só lugar.</p></div>
     </div>
   </div>
 </section>
@@ -134,12 +135,15 @@
     <p class="big">Diga quem você é e a gente te chama assim que abrir. Sem compromisso — é só levantar a mão.</p>
 
     <div class="chips" id="chips">
-      <button type="button" class="chip" data-tipo="Piscicultor">🐟 Sou piscicultor</button>
-      <button type="button" class="chip" data-tipo="Fornecedor/Marca">📦 Fornecedor / marca</button>
+      <button type="button" class="chip" data-tipo="Piscicultor">🐟 Piscicultor</button>
+      <button type="button" class="chip" data-tipo="Projetista">📐 Projetista</button>
+      <button type="button" class="chip" data-tipo="Profissional técnico">🎓 Profissional técnico</button>
+      <button type="button" class="chip" data-tipo="Fornecedor de equipamentos e insumos">⚙️ Equipamentos e insumos</button>
+      <button type="button" class="chip" data-tipo="Fornecedor de kits de controle da água">💧 Kits de controle da água</button>
+      <button type="button" class="chip" data-tipo="Marca/Anunciante">📦 Marca / anunciante</button>
       <button type="button" class="chip" data-tipo="Intermediador">🔄 Intermediador de peixes</button>
       <button type="button" class="chip" data-tipo="Abatedouro/Frigorífico">🏭 Abatedouro / frigorífico</button>
-      <button type="button" class="chip" data-tipo="Consumidor">🛒 Quero comprar peixe</button>
-      <button type="button" class="chip" data-tipo="Anunciante">📣 Quero anunciar</button>
+      <button type="button" class="chip" data-tipo="Consumidor">🛒 Quem compra peixe</button>
     </div>
 
     <form id="form">
@@ -184,11 +188,14 @@
 
   var perfis={
     "Piscicultor":{n:"O que você produz e em que sistema?",p:"Ex.: tilápia em bioflocos, ~10 tanques"},
-    "Fornecedor/Marca":{n:"O que você vende pro setor?",p:"Ex.: ração, aeradores, alevinos, geomembrana"},
+    "Projetista":{n:"Que tipo de projeto você faz?",p:"Ex.: dimensionamento de tanques, viveiros escavados, RAS"},
+    "Profissional técnico":{n:"Sua área e como você atende?",p:"Ex.: zootecnista/veterinário, consultoria de sanidade e água"},
+    "Fornecedor de equipamentos e insumos":{n:"O que você fornece?",p:"Ex.: aeradores, bombas, ração, alevinos, geomembrana"},
+    "Fornecedor de kits de controle da água":{n:"Que kits e parâmetros você atende?",p:"Ex.: kits de oxigênio, pH, amônia, nitrito"},
+    "Marca/Anunciante":{n:"O que você quer divulgar pro setor?",p:"Ex.: marca de ração, evento, serviço técnico"},
     "Intermediador":{n:"Que volume e regiões você atende?",p:"Ex.: compro e revendo ~2 ton/semana no sudoeste da BA"},
     "Abatedouro/Frigorífico":{n:"Que volume de pescado você compra?",p:"Ex.: 5 ton/mês de tilápia inteira"},
-    "Consumidor":{n:"O que você procura?",p:"Ex.: tilápia fresca eviscerada, entrega em Salvador"},
-    "Anunciante":{n:"O que você quer divulgar pro setor?",p:"Ex.: marca de ração, evento, serviço técnico"}
+    "Consumidor":{n:"O que você procura?",p:"Ex.: tilápia fresca eviscerada, entrega em Salvador"}
   };
 
   chips.forEach(function(c){
