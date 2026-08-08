@@ -26,6 +26,19 @@
   .wrap{max-width:960px;margin:0 auto;padding:0 22px}
   a{color:var(--ouroC);text-decoration:none}
 
+  /* barra superior com acesso ao app */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(10,31,56,.92);
+    backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(201,162,75,.22)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;
+    height:58px}
+  .topbar .tb-brand{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;
+    font-size:20px;letter-spacing:.18em;color:var(--creme);text-indent:.18em}
+  .tb-enter{display:inline-block;border:1.5px solid var(--ouro);color:var(--ouroC);
+    padding:9px 20px;border-radius:999px;font-size:14.5px;font-weight:700;
+    letter-spacing:.02em;transition:.18s;white-space:nowrap}
+  .tb-enter:hover{background:var(--ouro);color:var(--navy)}
+  @media(max-width:420px){.tb-enter{padding:9px 16px;font-size:14px}}
+
   /* HERO */
   header{padding:64px 0 52px;text-align:center;background:
      radial-gradient(1200px 520px at 50% -10%, rgba(201,162,75,.12), transparent 62%),
@@ -87,6 +100,39 @@
 </style>
 </head>
 <body>
+
+<script>
+/* Se a pessoa abriu pelo ATALHO ANTIGO do app (tela inicial / modo app),
+   manda direto pro app — sem ela precisar fazer nada. */
+(function(){
+  try{
+    var appMode = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
+                  || window.navigator.standalone === true;
+    if(appMode && location.search.indexOf('site')===-1){
+      location.replace('https://app.aluvi.app.br/');
+      return;
+    }
+  }catch(e){}
+  /* Limpa restos do app antigo que ficaram guardados neste endereço */
+  try{
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.getRegistrations().then(function(rs){
+        rs.forEach(function(r){ r.unregister(); });
+      }).catch(function(){});
+    }
+    if(window.caches && caches.keys){
+      caches.keys().then(function(ks){ ks.forEach(function(k){ caches.delete(k); }); }).catch(function(){});
+    }
+  }catch(e){}
+})();
+</script>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-brand">ALUVI</div>
+    <a class="tb-enter" href="https://app.aluvi.app.br/">Entrar no app →</a>
+  </div>
+</div>
 
 <header>
   <div class="wrap">
@@ -167,6 +213,9 @@
   <div class="wrap">
     <div class="serif" style="font-size:30px;letter-spacing:.2em;color:var(--creme);font-weight:500">ALUVI</div>
     <div style="color:var(--ouroC);font-size:12px;letter-spacing:3px;margin:4px 0 14px">FEITO DE PISCICULTOR PARA PISCICULTOR</div>
+    <div style="margin-bottom:16px">
+      <a class="tb-enter" href="https://app.aluvi.app.br/">Já tem conta? Entrar no app →</a>
+    </div>
     <div>
       <a href="https://instagram.com/aluvi.gestao" target="_blank">@aluvi.gestao</a> ·
       <a href="https://aluvi.app.br">aluvi.app.br</a>
